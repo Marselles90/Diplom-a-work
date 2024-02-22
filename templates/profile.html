@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Student Profile Page Design Example</title>
+
+    <meta name="author" content="Codeconvey" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
+
+    <!--Only for demo purpose - no need to add.-->
+    <link rel="stylesheet" href="{% static 'css/demo.css' %}" />
+    
+	    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+</head>
+<body>
+
+<header class="ScriptHeader">
+    <div class="rt-container">
+    	<div class="col-rt-12">
+        	<div class="rt-heading">
+            	<h1>Мой профиль</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section>
+    <div class="rt-container">
+          <div class="col-rt-12">
+              <div class="Scriptcontent">
+              
+<!-- Student Profile -->
+<div class="student-profile py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-transparent text-center">
+            <img class="profile_img" src="{{ user.profile.image.url }}" alt="Фотки нет :(">
+            <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+          </div>
+          <div class="card-body">
+            <p class="mb-0"><strong class="pr-1">Email:</strong>{{ user.email }}</p>
+            <p class="mb-0"><strong class="pr-1">Номер:</strong>{{ user.number }}</p>
+            
+            <a href="{% url 'profile' %}">
+              <a href="{% url 'home' %}"><button class="logout-form-btn">
+              Выйти</button></a>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card shadow-sm">
+          <div class="card-header bg-transparent border-0">
+            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Информация профиля</h3>
+          </div>
+          <div class="card-body pt-0">
+            <table class="table table-bordered">
+              <tr>
+                <th width="30%">Имя Фамилия родителя</th>
+                <td width="2%">:</td>
+                <td>{{ user.profile.full_name_par }}</td>
+              </tr>
+              <tr>
+                <th width="30%">Номер родителя</th>
+                <td width="2%">:</td>
+                <td>{{ user.profile.phone_par }}</td>
+              </tr>
+              <tr>
+                <th width="30%">Email родителя</th>
+                <td width="2%">:</td>
+                <td>{{ user.profile.email_par }}</td>
+              </tr>
+              <tr>
+                <th width="30%">Класс</th>
+                <td width="2%">:</td>
+                <td>{{ user.profile.class_num }}</td>
+              </tr>
+              <tr>
+                <th width="30%">Класcный руководитель </th>
+                <td width="2%">:</td>
+                <td>{{ user.profile.teacher.full_name_kr }}</td>
+              </tr>
+              <tr>
+              <tr>
+                <th width="30%">Номер Клас.рук </th>
+                <td width="2%">:</td>
+                <td>{{ user.profile.teacher.number_kr }}</td>
+              </tr>
+              <tr>
+                <th width="30%">Email Клас.рук</th>
+                <td width="2%">:</td>
+                <td>{{ user.profile.teacher.email_kr }}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+          <div style="height: 26px"></div>
+        <div class="card shadow-sm">
+          <div class="card-header bg-transparent border-0">
+            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Обо мне </h3>
+          </div>
+          <div class="card-body pt-0">
+              <p>Дорогой(-ая) <b>{{user.profile.teacher.full_name_kr}}</b> если хотите узнать больше информации обо мне, спросите у моей мамы, я сам за себя не отвечаю, у меня нету права голоса!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+           
+    		</div>
+		</div>
+    </div>
+</section>
+     
+
+
+    <!-- Analytics -->
+
+	</body>
+</html>

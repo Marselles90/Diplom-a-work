@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html> 
+ <html lang="en"> 
+ <head> 
+ <meta charset="UTF-8"> 
+ <meta 
+   name="viewport" 
+   content="width=device-width, 
+   initial-scale=1.0"> 
+ <title>Registration Form With Html & Css</title> 
+ <link rel="stylesheet" href="{% static 'css/style3.css' %}">
+
+</head> 
+  <body> 
+<div> 
+  <form action="{% url 'create_profile' %}" method='post' enctype="multipart/form-data">
+    {% csrf_token %} 
+    <h1 class="text-warning text-center pt-5">Заполните поля ниже!</h1>        
+    <label> 
+        <input type="text"  class="input" name="full_name" placeholder="Имя и Фамилия родителя"/> 
+        <div class="line-box"> 
+            <div class="line"></div> 
+        </div> 
+    </label> 
+    <label> 
+      <input type="file" name="image" placeholder="Выберите свою фотографию"/> 
+      <div class="line-box"> 
+          <div class="line"></div> 
+      </div> 
+  </label> 
+    <label> 
+        <input type="email" class="input" name="email" placeholder="Email родителя"/> 
+        <div class="line-box"> 
+            <div class="line"></div> 
+        </div> 
+    </label> 
+    <label> 
+        <input type="phone" class="input" name="phone" placeholder="Введите номер телефона родителя"/> 
+        <div class="line-box"> 
+            <div class="line"></div> 
+        </div> 
+    </label> 
+    <label> 
+      <input type="text" class="input" name="class_num" placeholder="Введите свой класс"/> 
+      <div class="line-box"> 
+          <div class="line"></div> 
+      </div> 
+  </label> 
+  <label> 
+    <select class="input" name="teacher">
+      {% for option in class_options %}
+      <option value="{{ option.id }}">{{ option.full_name_kr }}</option> 
+        {% endfor %}
+    </select> 
+    <div class="line-box"> 
+        <div class="line"></div> 
+    </div> 
+
+  </label> 
+</label> 
+    <button type="submit">Отправить</button> 
+</form>
+
+</div> 
+</body> 
+</html>
