@@ -64,9 +64,6 @@
             
             </ul>
             <div class="quote_btn-container">
-              {% if user.is_authenticated %}
-              <p> {{ user }} </p>
-              {% endif %}
               <a href="{% url 'logout' %}" class="quote_btn">
                 Выйти
               </a>
