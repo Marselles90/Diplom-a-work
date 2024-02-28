@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap3.css' %}" />
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style3.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive3.css' %}" rel="stylesheet" />
+
+  <style>
+    /* CSS для стилизации красного квадрата */
+    .red-square {
+      background-color: red;
+      color: white;
+      padding: 30px;
+      text-align: center;
+      margin-bottom: 20px; /* Добавим отступ снизу */
+      width: 395px; /* Задаем фиксированную ширину */
+      height: 370px; /* Задаем фиксированную высоту */
+      border-radius: 30px; /* Закругляем углы */
+
+    }
+  </style>
+  <!-- about section -->
+  <section class="about_section layout_padding layout_margin">
+    <div class="container">
+      <div class="row">
+        <!-- Первый столбец с красным квадратом -->
+        
+        <div class="col-md-6">
+          <div class="red-square">
+            <br>
+            <p></p>
+            <h3>Вы уже записаны !</h3>
+            <br>
+            <h5><b>Предмет:</b>  {{ cource.subject }}</h5>
+            <h5><b>Дата:</b>  {{ cource.week }} {{ cource.time }}</h5>
+            <h5><b>Учитель:</b>  {{ cource.teacher.name }}</h5>
+          </div>
+          
+          <!-- Добавляем кнопку "Записаться" под красным квадратом -->
+          <div class="detail-box">
+            <div class="heading_container" style="margin-top: 20px;">
+              <a href="{% url 'table' %}">Курсы</a>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Второй столбец с изображением -->
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="{% static 'images/cource.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end about section -->
+
+{% endblock %}

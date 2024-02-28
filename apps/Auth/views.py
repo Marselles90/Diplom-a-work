@@ -87,3 +87,10 @@ def logins(request):
             messages.warning(request, 'Заполните все поля!')
     
     return render(request, 'login.html')
+
+
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'Вы успешно вышли!')
+    return redirect('home')

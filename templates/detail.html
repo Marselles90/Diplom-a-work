@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap3.css' %}" />
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style3.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive3.css' %}" rel="stylesheet" />
+
+  <style>
+
+  </style>
+
+  <!-- about section -->
+  <section class="about_section layout_padding layout_margin">
+    <div class="container  ">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container" style="margin-bottom: 20px;" >
+              <h2>
+                {{ cource.subject }}
+              </h2>
+            </div>
+            <h5>{{ cource.text }} </h5>
+
+            <div style="position: absolute; top: 1px; right: 20px;">
+              <h4>{{ cource.day }}ㅤ{{ cource.time }}</h4>
+              
+            </div>
+            
+            <div style="margin-top: 30px;"> 
+            <h5>Учитель: {{ cource.teacher.name }}</h5>
+            </div>
+            <h5>Опыт работы: {{ cource.teacher.work_experience }}</h5>
+            <h5>Обрзование: {{ cource.teacher.education }}</h5>
+            <h5>Сертификат: {{ cource.teacher.certificate }}</h5>
+            
+
+            <a href="{% url 'add_course' cource.id %}">
+              Записаться
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="{% static 'images/cource.png' %}" alt="">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- end about section -->
+
+  
+
+{% endblock %}

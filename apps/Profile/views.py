@@ -5,9 +5,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 
-# from .models import User
-
-
 
 # Профиль ученика
 @login_required
@@ -48,10 +45,4 @@ def create_profile(request):
 @login_required
 def profile(request):
     return render(request, 'profile.html')
-
-
-def logout(request):
-    logout(request)
-    messages.success(request, 'Вы успешно вышли!')
-    return redirect('home')
 

@@ -59,8 +59,8 @@ body {
 
 /*header section*/
 .hero_area {
-  min-height: 100vh;
   position: relative;
+  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -68,14 +68,17 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: #7335b7;
+  border-radius: 0 0 350px 0;
 }
 
 .sub_page .hero_area {
   min-height: auto;
+  border-radius: 0 0 45px 0;
 }
 
 .header_section {
-  background-color: #ffffff;
+  padding: 15px 0;
 }
 
 .header_section .container-fluid {
@@ -83,53 +86,33 @@ body {
   padding-left: 25px;
 }
 
-.header_section .nav_container {
-  margin: 0 auto;
-}
-
-.custom_nav-container .navbar-nav .nav-item .nav-link {
-  padding: 3px 15px;
-  margin: 10px 15px;
-  color: #272727;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-a,
-a:hover,
-a:focus {
-  text-decoration: none;
-}
-
-a:hover,
-a:focus {
-  color: initial;
-}
-
-.btn,
-.btn:focus {
-  outline: none !important;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.custom_nav-container .nav_search-btn {
-  width: 35px;
-  height: 35px;
-  padding: 0;
-  border: none;
-}
-
 .navbar-brand span {
+  font-weight: bold;
+  color: #ffffff;
   font-size: 24px;
-  font-weight: 700;
-  color: #272727;
-  text-transform: uppercase;
 }
 
 .custom_nav-container {
-  z-index: 99999;
-  padding: 5px 0;
+  padding: 0;
+}
+
+.custom_nav-container .navbar-nav {
+  margin: auto;
+}
+
+.custom_nav-container .navbar-nav .nav-item .nav-link {
+  padding: 5px 25px;
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.custom_nav-container .navbar-nav .nav-item:hover .nav-link, .custom_nav-container .navbar-nav .nav-item.active .nav-link {
+  color: #000000;
+  background-color: #ffffff;
 }
 
 .custom_nav-container .navbar-toggler {
@@ -146,14 +129,14 @@ a:focus {
 
 .custom_nav-container .navbar-toggler span {
   display: block;
-  width: 32px;
+  width: 35px;
   height: 4px;
-  background-color: #000000;
-  border-radius: 15px;
+  background-color: #ffffff;
   margin: 7px 0;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   position: relative;
+  border-radius: 5px;
   transition: all 0.3s;
 }
 
@@ -163,9 +146,9 @@ a:focus {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: #000000;
-  border-radius: 15px;
+  background-color: #ffffff;
   top: -10px;
+  border-radius: 5px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -190,6 +173,31 @@ a:focus {
   top: 0;
 }
 
+.custom_nav-container .navbar-toggler[aria-expanded="true"] .s-1 {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  margin: 0;
+  margin-bottom: -4px;
+}
+
+.custom_nav-container .navbar-toggler[aria-expanded="true"] .s-2 {
+  display: none;
+}
+
+.custom_nav-container .navbar-toggler[aria-expanded="true"] .s-3 {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  margin: 0;
+  margin-top: -4px;
+}
+
+.custom_nav-container .navbar-toggler[aria-expanded="false"] .s-1,
+.custom_nav-container .navbar-toggler[aria-expanded="false"] .s-2,
+.custom_nav-container .navbar-toggler[aria-expanded="false"] .s-3 {
+  -webkit-transform: none;
+          transform: none;
+}
+
 .quote_btn-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -200,13 +208,33 @@ a:focus {
 }
 
 .quote_btn-container a {
-  color: #151515;
-  margin-right: 25px;
+  color: #000000;
   text-transform: uppercase;
 }
 
 .quote_btn-container a span {
-  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.quote_btn-container a:hover {
+  color: #f8842b;
+}
+
+.quote_btn-container .quote_btn {
+  display: inline-block;
+  padding: 5px 25px;
+  background-color: #f8842b;
+  color: #ffffff;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: 1px solid #f8842b;
+}
+
+.quote_btn-container .quote_btn:hover {
+  color: #ffffff;
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
 }
 
 /*end header section*/
@@ -846,3 +874,14 @@ a:focus {
   color: inherit;
 }
 /*# sourceMappingURL=style.css.map */
+
+
+
+.student-profile .card .card-header .profile_img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 10px auto;
+  border: 10px solid #ccc;
+  border-radius: 50%;
+}
