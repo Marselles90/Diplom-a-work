@@ -46,3 +46,47 @@ def create_profile(request):
 def profile(request):
     return render(request, 'profile.html')
 
+
+
+@login_required
+def edit_profile(request):
+    try:
+        profile = Profile.objects.get(user=request.user)
+    except Profile.DoesNotExist:
+        return redirect('create_profile')
+
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        about_me = request.POST.get('about_me')
+        full_name_par = request.POST.get('full_name')
+        email_par = request.POST.get('email')
+        phone_par = request.POST.get('phone')
+        class_num = request.POST.get('class_num')
+        image = request.FILES.get('image')
+        user_email = request.POST.get('user_email')
+        user_number = request.POST.get('user_number')
+        
+        
+        profile.full_name_par = full_name_par
+        profile.email_par = email_par
+        profile.phone_par = phone_par
+        profile.class_num = class_num
+        profile.user.email = user_email
+        profile.user.number = user_number
+        profile.about_me = about_me
+        profile.user.first_name = first_name
+        profile.user.last_name = last_name
+        
+        if image:
+            profile.image = image
+        profile.save()
+        profile.user.save()
+        return redirect('profile')    
+        
+    teachers = Teacher.objects.all()
+    context ={
+        'class_options': teachers,
+        'profile': profile
+    }
+    return render(request, 'edit_profile.html', context)

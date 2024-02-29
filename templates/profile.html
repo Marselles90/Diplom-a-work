@@ -21,9 +21,11 @@
           <div class="card-body">
             <p class="mb-0"><strong class="pr-1">Email:</strong>{{ user.email }}</p>
             <p class="mb-0"><strong class="pr-1">Номер:</strong>{{ user.number }}</p>
-            
           </div>
         </div>
+        <a href='{% url "edit_profile" %}'><button type="button" class="btn btn-primary" style="background-color: blue; border-color: blue;">
+          Редактировать профиль
+      </button></a>
       </div>
       <div class="col-lg-8">
         <div class="card shadow-sm">
@@ -77,7 +79,7 @@
             <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Обо мне </h3>
           </div>
           <div class="card-body pt-0">
-              <p>Дорогой(-ая) <b>{{user.profile.teacher.full_name_kr}}</b> если хотите узнать больше информации обо мне, спросите у моей мамы, я сам за себя не отвечаю, у меня нету права голоса!</p>
+              <p>{{ user.profile.about_me }}</p>
           </div>
         </div>
       </div>

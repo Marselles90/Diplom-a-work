@@ -26,15 +26,14 @@
 				
 					{% if messages %}
 					{% for message in messages %}
-						{% if message.tags %}
-						<div class="alert {% if message.tags == 'error' %}alert-danger{% elif message.tags == 'success' %}alert-success{% endif %}" role="alert">
-							<strong>{% if message.tags == 'error' %}{% elif message.tags == 'success' %}{% endif %}</strong>
-							{{ message }}
-						</div>
-						{% endif %}
+					  {% if message.tags %}
+					  <div class="alert {% if message.tags == 'error' %}alert-danger{% elif message.tags == 'success' %}alert-success{% endif %}" role="alert">
+						<strong>{% if message.tags == 'error' %}{% elif message.tags == 'success' %}{% endif %}</strong>
+						{{ message }}
+					  </div>
+					  {% endif %}
 					{% endfor %}
 					{% endif %}
-			
 				<form class="login100-form validate-form" action="{% url 'auth' %}" method='POST'>
 					 {% csrf_token %} 
 					<span class="login100-form-logo">

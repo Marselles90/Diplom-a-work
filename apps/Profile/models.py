@@ -25,6 +25,7 @@ class Profile(models.Model):
     phone_par = models.CharField(max_length=15, verbose_name='Номер')
     class_num = models.CharField(max_length=5, verbose_name='Класс')
     image = models.ImageField(upload_to='static/images/') 
+    about_me = models.TextField()
     
     def __str__(self):
         return self.full_name_par

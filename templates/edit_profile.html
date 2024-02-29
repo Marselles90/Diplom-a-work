@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section>
+    <div class="rt-container">
+          <div class="col-rt-12">
+              <div class="Scriptcontent">
+              
+<!-- Student Profile -->
+<div class="student-profile py-4">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-transparent text-center">
+            <img class="profile_img" src="{{ user.profile.image.url }}" alt="Фотки нет :(">
+            <p class="mb-0"><strong class="pr-1">Имя:</strong>
+              <input type="text" name="first_name" value="{{  user.first_name  }}">
+            </p>
+            <p class="mb-0"><strong class="pr-1">Фамилия:</strong>
+              <input type="text" name="last_name" value="{{  user.last_name  }}">
+            </p>
+            <p class="mb-0"><strong class="pr-1">Фото:</strong>
+            <input type="file" name="image" value="{{ user.profile.image.url  }}">
+          </p>
+          </div>
+          <div class="card-body">
+            <p class="mb-0"><strong class="pr-1">Email:</strong>
+              <input type="email" name="user_email" value="{{  user.email  }}">
+            </p>
+
+            <p class="mb-0"><strong class="pr-1">Номер:</strong>
+              <input type="tel" name="user_number" value="{{  user.number  }}">
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-transparent border-0">
+                <h3 class="mb-0"></i>Редактирование профиля</h3>
+            </div>
+            <div class="card-body pt-0">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>
+                            <h5>ФИ родителя:</h5>
+                            <input type="text" id="full_name" name="full_name" value="{{ profile.full_name_par }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>Номер родителя:</h5>
+                            <input type="phone" id="phone" name="phone" value="{{ user.profile.phone_par }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            </h5>Email родителя:</h5><br>
+                            <input type="email" id="email" name="email" value="{{ user.profile.email_par }}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>Класс:</h5>
+                            <input type="text" id="class_num" name="class_num" value="{{ user.profile.class_num }}">
+                        </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <h5>Обо мне</h5>
+                          <input type="text" id="about_me" name="about_me" value="{{ user.profile.about_me }}">
+                      </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="background-color: blue; border-color: blue;">
+          Сохранить
+      </button>
+
+      
+    </form>
+  </div>
+{% endblock %}
+
+
+
+
+
+<!-- 
+<body>
+    <h1>Edit Profile</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+      
+
+        <input type="file" id="image" name="image"><br>
+        <input type="submit" value="Save">
+    </form>
+</body>
+</html> -->
